@@ -11,7 +11,6 @@ public class MyServer {
 	private static final int secondHeaderLength = 4;
 	private static final int bodyLength = 6;
 
-	private static final String host = "localhost";
 	private static final int port = 8888;
 
 	public static void main(String[] args) throws IOException {
@@ -41,7 +40,7 @@ public class MyServer {
 					System.out.println("b " + i + " " + bb.position() + " " + bb.limit());
 				}
 			}
-			
+
 			// process message
 			// flip
 			for (int i = 0; i < bufs.length; i++) {
