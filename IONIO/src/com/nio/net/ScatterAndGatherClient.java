@@ -1,11 +1,11 @@
-﻿package com.lz;
+﻿package com.nio.net;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 
-public class MyClient {
+public class ScatterAndGatherClient {
 	private static final int firstHeaderLength = 2;
 	private static final int secondHeaderLength = 4;
 	private static final int bodyLength = 6;

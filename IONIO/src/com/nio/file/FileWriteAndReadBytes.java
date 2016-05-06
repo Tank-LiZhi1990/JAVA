@@ -1,4 +1,4 @@
-package com.lz;
+package com.nio.file;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,17 +7,24 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class WriteSomeBytes {
+public class FileWriteAndReadBytes {
+	/*
+	 * 1.从FileInputStream中获取Channel
+	 * 2.创建buffer
+	 * 3.将数据从channel读到buffer
+	 * 
+	 */
 	public static void main(String[] args) throws IOException {
+		// 初始化步骤
 		FileOutputStream out = new FileOutputStream(new File("write.txt"));
 		FileChannel fc = out.getChannel();
-
 		ByteBuffer bb = ByteBuffer.allocate(1024);
-		byte[] message = "abcdefghijklmnopqrstuvwxyz�й�".getBytes();
+
+		// 写,内部机制会跟踪它包含多少数据以及还有多少数据要写入
+		byte[] message = "abcdefghijklmnopqrstuvwxyz中国".getBytes("UTF-8");
 		for (int i = 0; i < message.length; i++) {
 			bb.put(message[i]);
 		}
-
 		bb.flip();
 		fc.write(bb);
 		out.close();
@@ -26,6 +33,8 @@ public class WriteSomeBytes {
 		fc = fin.getChannel();
 
 		bb.clear();
+
+		// 读,跟踪已经读了多少数据,以及还有多少空间可以容纳新的数据
 		fc.read(bb);
 		bb.flip();
 
@@ -35,7 +44,8 @@ public class WriteSomeBytes {
 		while (bb.hasRemaining()) {
 			bytes[i++] = bb.get();
 		}
-		System.out.println(new String(bytes));//StringBuilder
+
+		System.out.println(new String(bytes, "UTF-8"));// StringBuilder
 
 		fin.close();
 	}
