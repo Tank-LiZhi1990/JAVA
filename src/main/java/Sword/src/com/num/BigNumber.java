@@ -1,4 +1,4 @@
-﻿package Sword.src.com.num;
+package Sword.src.com.num;
 
 import java.util.Arrays;
 

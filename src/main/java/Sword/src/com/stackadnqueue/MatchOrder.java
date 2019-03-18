@@ -1,4 +1,4 @@
-﻿package Sword.src.com.stackadnqueue;
+package Sword.src.com.stackadnqueue;
 
 import java.util.Stack;
 

@@ -1,5 +1,6 @@
-﻿package Sword.src.com.list;
+package Sword.src.com.list;
 
+import Sword.src.com.node.ListNode;
 import org.junit.Test;
 
 import com.node.ListNode;

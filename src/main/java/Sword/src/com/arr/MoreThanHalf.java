@@ -1,4 +1,4 @@
-﻿package Sword.src.com.arr;
+package Sword.src.com.arr;
 
 import org.junit.Test;
 
